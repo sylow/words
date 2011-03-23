@@ -1,6 +1,10 @@
 Flash::Application.routes.draw do
-  get "words/collect"
-
+  resources :words do 
+    collection do
+      get 'collect'
+      post 'collect'
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -20,7 +24,7 @@ Flash::Application.routes.draw do
   #     member do
   #       get 'short'
   #       post 'toggle'
-  #     end
+  #       end
   #
   #     collection do
   #       get 'sold'

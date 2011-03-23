@@ -1,15 +1,6 @@
 require 'machinist/active_record'
-
-# Add your blueprints here.
-#
-# e.g.
-#   Post.blueprint do
-#     title { "Post #{sn}" }
-#     body  { "Lorem ipsum..." }
-#   end
-
 Word.blueprint do
-  word {"makkelijk"}
+  text {"makkelijk"}
 end
 
 Meaning.blueprint do
@@ -20,4 +11,8 @@ end
 Example.blueprint do
   text {"Het was so makkie"}
   meaning
+end
+
+["makkelijk", "misschien", "aankomen"].each do |word|
+  FakeWeb.register_uri(:get, "http://nl.wiktionary.org/wiki/#{word}", :response => File.read("#{::Rails.root.to_s}/spec/files/#{word}.response"))
 end

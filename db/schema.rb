@@ -10,10 +10,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110313141856) do
+ActiveRecord::Schema.define(:version => 20110321133006) do
+
+  create_table "examples", :force => true do |t|
+    t.integer  "meaning_id"
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "meanings", :force => true do |t|
+    t.integer  "word_id"
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "words", :force => true do |t|
-    t.string   "word"
+    t.string   "text"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"

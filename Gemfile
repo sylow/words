@@ -37,6 +37,7 @@ gem "mechanize"
 #gem 'typus', :git => 'https://github.com/fesplugas/typus.git'
 
 group :development, :test do
+  gem 'wirble'
   gem 'simplecov', '>= 0.3.5', :require => false # Will install simplecov-html as a dependency
   gem "rspec-rails", ">= 2.0.1"
   gem 'fuubar' #color our rspecs
@@ -46,4 +47,5 @@ group :development, :test do
   gem 'machinist', '>= 2.0.0.beta1'
   gem 'launchy'
   gem 'database_cleaner'
+  gem 'fakeweb'
 end
